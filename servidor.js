@@ -1,7 +1,8 @@
 
-const http = require ("http");
+import http from "http";
 const host = "localhost";
 const puerto = "8000";
+import chalk from "chalk"
 
 let servidor = http.createServer ((req, res) => { 
     res.writeHead (200, {"content-Type" : "application/json; charset=utf-8"});
@@ -19,6 +20,6 @@ let servidor = http.createServer ((req, res) => {
     res.end(JSON.stringify(respuestaJSON));
     });
 
-servidor.listen (puerto,host => {
-    console.log("El servidor está funcionando: " + host + ":" + puerto);
+servidor.listen (puerto,() => {
+    console.log(chalk.green ("El servidor está funcionando: " + host + ":" + puerto));
 });
